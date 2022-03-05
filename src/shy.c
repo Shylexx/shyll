@@ -130,9 +130,7 @@ char *shy_read_line(void)
     c = getchar();
     printf("Yay it isnt");
 
-    if(c == EOF) {
-      exit(EXIT_SUCCESS);
-    } else if (c=='\n') {
+    if(c == EOF || c == '\n') {
       buffer[position] = '\0';
       return buffer;
     } else {
