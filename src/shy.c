@@ -97,7 +97,7 @@ int shy_execute(char **args)
 {
   int i;
 
-  if(args[0] = NULL) {
+  if(args[0] == NULL) {
     // No Command Entered
     return 1;
   }
@@ -126,9 +126,7 @@ char *shy_read_line(void)
 
   while(1) {
     // Read a character
-    printf("Cmon dont tell me getchar is the problem");
     c = getchar();
-    printf("Yay it isnt");
 
     if(c == EOF || c == '\n') {
       buffer[position] = '\0';
@@ -192,11 +190,8 @@ void shy_loop(void)
   do {
     printf("> ");
     line = shy_read_line();
-    printf("Read Line Successfully");
     args = shy_split_line(line);
-    printf("Split Line Successfully");
     status = shy_execute(args);
-    printf("Executed Command Successfully");
 
     free(line);
     free(args);
